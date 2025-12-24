@@ -1,0 +1,339 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.hidden {
+    display: none;
+}
+
+/* شاشة البداية */
+.start-screen {
+    height: 100vh;
+    background-image: url("تنزيل\ \(1\).jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* صندوق شفاف للنص */
+.intro-box {
+    background: rgba(119, 152, 176, 0.2);
+    padding: 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(6px);
+}
+
+/* تأثير نبض للعنوان */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+.title {
+    font-size: 60px;
+    color: #a81e1e;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #fff, -2px -2px 5px #fff;
+}
+
+.subtitle {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #39201d;
+    text-shadow: 2px 2px 5px #da9191, -2px -2px 5px #d6a0a0;
+}
+
+.question {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #3d3f5a;
+    text-shadow: 2px 2px 5px #817cd4, -2px -2px 5px #9c81e6;
+}
+.start-btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    border: none;
+    background: #ca6fab;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* شاشة اللعبة */
+.game-screen {
+    height: 100vh;
+    background-image: url(تنزيل\ \(1\).jpg );
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dog-container {
+    text-align: center;
+}
+
+.dog {
+    width: 200px;
+    margin: 20px 0;
+}
+
+.speech-bubble {
+    background: rgba(10, 0, 6, 0.603);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    color: rgb(188, 151, 188);
+    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+.ready-btn {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #ff7675;
+    color: white;
+    cursor: pointer;
+}
+
+.answers {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.answer-btn {
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: none;
+    background: #ffeaa7;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* شاشة الهدية */
+.gift-screen,
+.love-screen {
+    height: 100vh;
+    background: #fff3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gift-img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.gift-text {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.open-gift-btn {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+/* رسالة الحب */
+.love-box {
+    background: rgba(116, 20, 76, 0.292);
+    padding: 30px;
+    border-radius: 25px;
+    width: 90%;                  /* تقريبًا كامل الشاشة مع هامش */
+    max-width: 600px;            /* لا يصبح أكبر من هذا */
+    max-height: 80vh;            /* ارتفاع أقصى للصندوق */
+    font-size: 20px;             /* حجم النص أكبر */
+    overflow-y: auto;            /* يسمح بالتمرير داخل الصندوق */
+    line-height: 1.6;
+    box-shadow: 0 4px 15px rgb(67, 82, 83); /* ظل لطيف */
+}
+/* انتقال ناعم بين الشاشات */
+.start-screen,
+.game-screen,
+.gift-screen ,
+.love-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+/* لما تكون مخفية */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+/* اهتزاز الهدية */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.gift-img {
+    animation: shake 1s infinite;
+}
+#hearts {
+    position: absolute;
+    top: 20px;
+    font-size: 32px;
+    text-align: center;
+}
+
+function checkAnswer(selected) {
+    const correctAnswer = questions[currentQuestion].correct;
+
+    if (selected !== correctAnswer) {
+        hearts--;
+        updateHearts();
+
+        if (hearts === 0) {
+            alert("خسرتي كل القلوب 💔 نعيد اللعبة من البداية");
+            location.reload();
+            return;
+        }
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        gameScreen.classList.add("hidden");
+        giftScreen.classList.remove("hidden");
+    }
+}
+.come-gif {
+    width: 180px;
+    margin-top: 25px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+.song-page {
+    min-height: 100vh;
+    background: #fff3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.song-page h1 {
+    margin-bottom: 20px;
+}
+
+#play-song {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background: #ffb6c1;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.lyrics-box {
+    margin-top: 30px;
+    background: rgb(163, 116, 116);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* خلف كل العناصر */
+    opacity: 0.3; /* خفيف اللون */
+}
+
+.song-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.song-page h1 {
+    margin-bottom: 20px;
+    color: #4f6368; /* يظهر فوق الفيديو */
+}
+
+#play-song {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    background: #e69ec4;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.lyrics-box {
+    margin-top: 30px;
+    background: rgba(255,255,255,0.8);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    font-size: 18px;
+    line-height: 1.8;
+}
